@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Header.h"
 #include <cstring>
+#include <fstream>
 #pragma disable warning(4996)
 #define _CRT_SECURE_NO_WARNINGS
 
@@ -90,6 +91,38 @@ String& String::operator+=(const char* string) {
 bool String::operator==(const String& s1) const{
 	return strcmp(this->str, s1.str) == 0;
 }
+bool String::operator!=(const String& s1) const {
+	return strcmp(this->str, s1.str) != 0;
+ }
+bool String::operator<=(const String& s1) const {
+	return strcmp(this->str, s1.str) <= 0;
+}
+bool String::operator<(const String& s1) const {
+	return strcmp(this->str, s1.str) < 0;
+}
+bool String::operator>(const String& s1) const {
+	return strcmp(this->str, s1.str) > 0;
+}
+bool String::operator>=(const String& s1) const {
+	return strcmp(this->str, s1.str) >= 0;
+}
+void String::operator<<(const String& s1) const {
+	std::ifstream file("HopeItExist.txt", std::ios::beg);
+	char BUFF[MAX_SIZE+1];
+	while (!file.eof()) {
+	file.getline(BUFF, MAX_SIZE);
+	std::cout << BUFF;
+	}
+	file.close();
+}
+void String::operator>>(String* s1) {
+	std::ofstream file("HopeItExist.txt", std::ios::app);
+	file <<"\n" << s1->str;
+	file.close();
+}
+
+
+
 
 
 

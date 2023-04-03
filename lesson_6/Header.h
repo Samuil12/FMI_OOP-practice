@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 
+short MAX_SIZE = 256;
 class String {
 	char* str;
 	void sizeFit(char* str);
@@ -18,4 +19,12 @@ public:
 	String& operator+=(String& other);
 	String& operator+=(const char* str);
 	bool operator==(const String& s1)const;
+	bool operator!=(const String& s1)const;
+	bool operator<=(const String& s1)const;
+	bool operator<(const String& s1)const;
+	bool operator>(const String& s1)const;
+	bool operator<=(const String& s1)const;
+
+	void operator<<(const String& s1)const;
+	void operator>>(String* s1);
 };
